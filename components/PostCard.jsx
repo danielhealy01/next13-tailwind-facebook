@@ -42,7 +42,7 @@ function PostCard() {
               />
             </svg>
           </button>
-        )}  
+        )}
         {/*
         <ClickOutHandler onClickout={() => { }}>
           {dropdownMenuOpen && <div>dropdown menu</div>}
@@ -52,7 +52,10 @@ function PostCard() {
           <div className="relative">
             {dropdownMenuOpen && (
               <div className="absolute right-2 top-8 bg-white shadow-md shadow-gray-300 p-3 rounded-sm w-52">
-                <a className="flex gap-2 p-2" href="">
+                <a
+                  className="flex gap-3 py-3 py-1 my-2 hover:bg-socialBlue hover:text-white hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all"
+                  href=""
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -69,7 +72,10 @@ function PostCard() {
                   </svg>
                   Save post
                 </a>
-                <a className="flex gap-2 p-2" href="">
+                <a
+                  className="flex gap-3 py-3 py-1 my-2 hover:bg-socialBlue hover:text-white hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all"
+                  href=""
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -86,7 +92,10 @@ function PostCard() {
                   </svg>
                   Stop notifications
                 </a>
-                <a className="flex gap-2 p-2" href="">
+                <a
+                  className="flex gap-3 py-3 py-1 my-2 hover:bg-socialBlue hover:text-white hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all"
+                  href=""
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -103,7 +112,10 @@ function PostCard() {
                   </svg>
                   Hide posts
                 </a>
-                <a className="flex gap-2 p-2" href="">
+                <a
+                  className="flex gap-3 py-3 py-1 my-2 hover:bg-socialBlue hover:text-white hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all"
+                  href=""
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -120,7 +132,10 @@ function PostCard() {
                   </svg>
                   Delete
                 </a>
-                <a className="flex gap-2 p-2" href="">
+                <a
+                  className="flex gap-3 py-3 py-1 my-2 hover:bg-socialBlue hover:text-white hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all"
+                  href=""
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
