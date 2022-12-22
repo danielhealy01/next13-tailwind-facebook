@@ -1,11 +1,15 @@
 import Card from "./Card";
 
 function Navigation() {
+  const activeElement =
+    "flex gap-3 py-3 bg-socialBlue text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300";
+  const inActiveElement =
+    "flex gap-3 py-3 py-1 my-2 hover:bg-blue-500 hover:bg-opacity-20 hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all";
   return (
     <Card>
       <div className="px-4 py-2">
         <h2 className="text-gray-400 mb-3">Navigation</h2>
-        <a href="" className="flex gap-3 py-3">
+        <a href="" className={activeElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -22,7 +26,7 @@ function Navigation() {
           </svg>
           Home
         </a>
-        <a href="" className="flex gap-3 py-3">
+        <a href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -39,7 +43,7 @@ function Navigation() {
           </svg>
           Friends
         </a>
-        <a href="" className="flex gap-3 py-3">
+        <a href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -56,7 +60,7 @@ function Navigation() {
           </svg>
           Saved Posts
         </a>
-        <a href="" className="flex gap-3 py-3">
+        <a href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -73,7 +77,7 @@ function Navigation() {
           </svg>
           Notifications
         </a>
-        <a href="" className="flex gap-3 py-3">
+        <a href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
