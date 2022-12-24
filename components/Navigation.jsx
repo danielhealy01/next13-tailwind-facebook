@@ -1,6 +1,10 @@
 import Card from "./Card";
+import Router, { useRouter } from "next/router";
+import Link from "next/link";
 
 function Navigation() {
+  const router = useRouter()
+  const { pathname } = router
   const activeElement =
     "flex gap-3 py-3 bg-socialBlue text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300";
   const inActiveElement =
@@ -9,7 +13,7 @@ function Navigation() {
     <Card>
       <div className="px-4 py-2">
         <h2 className="text-gray-400 mb-3">Navigation</h2>
-        <a href="" className={activeElement}>
+        <Link href="/" className={pathname === '/' ? activeElement : inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -25,8 +29,8 @@ function Navigation() {
             />
           </svg>
           Home
-        </a>
-        <a href="" className={inActiveElement}>
+        </Link>
+        <Link href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -42,8 +46,8 @@ function Navigation() {
             />
           </svg>
           Friends
-        </a>
-        <a href="" className={inActiveElement}>
+        </Link>
+        <Link href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -59,8 +63,8 @@ function Navigation() {
             />
           </svg>
           Saved Posts
-        </a>
-        <a href="" className={inActiveElement}>
+        </Link>
+        <Link href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -76,8 +80,8 @@ function Navigation() {
             />
           </svg>
           Notifications
-        </a>
-        <a href="" className={inActiveElement}>
+        </Link>
+        <Link href="" className={inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -93,7 +97,7 @@ function Navigation() {
             />
           </svg>
           Logout
-        </a>
+        </Link>
       </div>
     </Card>
   );

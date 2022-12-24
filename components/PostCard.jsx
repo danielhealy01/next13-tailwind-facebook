@@ -14,7 +14,7 @@ function PostCard() {
     <Card>
       <div className="flex gap-3">
         <div>
-          <Link href={"/profile"}>
+          <Link href={"/Profile"}>
             <span className="cursor-pointer">
               <Avatar />
             </span>
@@ -22,7 +22,7 @@ function PostCard() {
         </div>
         <div className="grow">
           <p>
-            <Link href={'/profile'}>
+            <Link href={'/Profile'}>
               <span className="mr-1 font-semibold hover:underline cursor-pointer">
                 John Doe
               </span>{" "}

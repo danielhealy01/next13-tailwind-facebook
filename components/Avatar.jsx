@@ -1,6 +1,8 @@
-function Avatar() {
+function Avatar({ size }) {
+  let width = 'w-12'
+  size === 'lg' ? width = 'w-24' : 'w-12'
   return (
-    <div className="w-12 rounded-full overflow-hidden">
+    <div className={`${width} rounded-full overflow-hidden`}>
       <img src="../1516856346853.jpeg" alt="avatar" />
     </div>
   );
