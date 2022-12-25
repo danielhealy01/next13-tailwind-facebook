@@ -4,11 +4,13 @@ import Avatar from "../components/Avatar";
 import Link from "next/link";
 import PostCard from "../components/PostCard";
 import { useRouter } from "next/router";
+import FriendInfo from "../components/FriendInfo";
 
 function Profile() {
   const router = useRouter();
-  const { pathname } = router;
-  const isPosts = pathname.includes('posts') || pathname === '/Profile'
+  const { asPath: pathname } = router;
+  /* destructures asPath from router, but renames variable to pathname*/
+  const isPosts = pathname.includes("posts") || pathname === "/Profile";
   const isAbout = pathname.includes("about");
   const isFriends = pathname.includes("friends");
   const isPhotos = pathname.includes("photos");
@@ -54,7 +56,7 @@ function Profile() {
               </Link>
               <Link
                 className={isAbout ? activeTabClasses : tabClasses}
-                href={"/Pofile/about"}
+                href={"/profile/about"}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +92,7 @@ function Profile() {
                     d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
                   />
                 </svg>
-                Friend
+                Friends
               </Link>
               <Link
                 className={isPhotos ? activeTabClasses : tabClasses}
@@ -116,7 +118,96 @@ function Profile() {
           </div>
         </div>
       </Card>
-      <PostCard />
+      {isPosts && <PostCard />}
+      {isAbout && (
+        <Card>
+          <h2 className="text-3xl mb-2">About Me</h2>
+          <p className="mb-2 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            non blandit mauris. Vivamus eu viverra leo. Maecenas vitae egestas
+            ipsum. Proin sed urna interdum odio aliquet vestibulum a vitae
+            libero. Aenean ut lorem et massa cursus placerat. Cras placerat
+            porttitor massa, eget dapibus diam posuere sed. Cras a nisi viverra,
+            venenatis nunc in, aliquam ipsum. Nullam dapibus mattis purus
+            sodales pulvinar.
+          </p>
+          <p className="mb-2 text-sm">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+            non blandit mauris. Vivamus eu viverra leo. Maecenas vitae egestas
+            ipsum. Proin sed urna interdum odio aliquet vestibulum a vitae
+            libero. Aenean ut lorem et massa cursus placerat. Cras placerat
+            porttitor massa, eget dapibus diam posuere sed. Cras a nisi viverra,
+            venenatis nunc in, aliquam ipsum. Nullam dapibus mattis purus
+            sodales pulvinar.
+          </p>
+        </Card>
+      )}
+      {isFriends && (
+        <div>
+          <Card>
+            <h2 className="text-3xl mb-2">Friends</h2>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+            <div className="border-b p-4 -mx-4">
+              <FriendInfo />
+            </div>
+          </Card>
+        </div>
+      )}
+      {isPhotos && (
+        <div>
+          <Card>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-md overflow-hidden shadow-md">
+                <img
+                  src="../alex-knight-wfwUpfVqrKU-unsplash.jpg"
+                  alt="photo1"
+                />
+              </div>
+              <div className="rounded-md overflow-hidden shadow-md">
+                <img
+                  src="../clay-banks-hwLAI5lRhdM-unsplash.jpg"
+                  alt="photo2"
+                />
+              </div>
+              <div className="rounded-md overflow-hidden shadow-md">
+                <img
+                  src="../jezael-melgoza-layMbSJ3YOE-unsplash.jpg"
+                  alt="photo3"
+                />
+              </div>
+              <div className="rounded-md overflow-hidden shadow-md">
+                <img
+                  src="../denys-nevozhai-D68ADLeMh5Q-unsplash.jpg"
+                  alt="photo4"
+                />
+              </div>
+            </div>
+          </Card>
+        </div>
+      )}
     </Layout>
   );
 }

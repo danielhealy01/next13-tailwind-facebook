@@ -3,8 +3,8 @@ import Router, { useRouter } from "next/router";
 import Link from "next/link";
 
 function Navigation() {
-  const router = useRouter()
-  const { pathname } = router
+  const router = useRouter();
+  const {asPath: pathname } = router;
   const activeElement =
     "flex gap-3 py-3 bg-socialBlue text-white -mx-10 px-10 rounded-md shadow-md shadow-gray-300";
   const inActiveElement =
@@ -13,7 +13,10 @@ function Navigation() {
     <Card>
       <div className="px-4 py-2">
         <h2 className="text-gray-400 mb-3">Navigation</h2>
-        <Link href="/" className={pathname === '/' ? activeElement : inActiveElement}>
+        <Link
+          href="/"
+          className={pathname === "/" ? activeElement : inActiveElement}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -30,7 +33,7 @@ function Navigation() {
           </svg>
           Home
         </Link>
-        <Link href="" className={inActiveElement}>
+        <Link href="/profile/friends" className={pathname === '/profile/friends' ? activeElement : inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
