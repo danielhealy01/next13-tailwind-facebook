@@ -10,7 +10,7 @@ function PostFormCard() {
         </div>
         <textarea className="grow p-3 h-14" placeholder={"Hi, Dan. What's up?"} />
       </div>
-      <div className="flex gap-5 items-center mt-2">
+      <div className="flex gap-5 items-center mt-2 flex-wrap">
         <div>
           <button className="flex gap-1">
             <svg

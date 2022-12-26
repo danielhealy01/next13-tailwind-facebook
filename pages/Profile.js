@@ -33,7 +33,7 @@ function Profile() {
               <h1 className="text-3xl font-bold">Daniel Healy</h1>
               <div className="text-gray-500 leading-4">London, UK</div>
             </div>
-            <div className="flex gap-5 mt-8">
+            <div className="flex gap-5 mt-8 flex-wrap">
               <Link
                 className={isPosts ? activeTabClasses : tabClasses}
                 href={"/profile/posts"}
@@ -179,7 +179,7 @@ function Profile() {
       {isPhotos && (
         <div>
           <Card>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="rounded-md overflow-hidden shadow-md">
                 <img
                   src="../alex-knight-wfwUpfVqrKU-unsplash.jpg"

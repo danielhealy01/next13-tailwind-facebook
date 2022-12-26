@@ -1,17 +1,20 @@
 import Navigation from "./Navigation";
 
-
-function Layout({children, hideNavigation}) {
+function Layout({ children, hideNavigation }) {
+  let rightColumnClasses = "";
+  if (hideNavigation) {
+    rightColumnClasses += "w-full";
+  } else {
+    rightColumnClasses += "mx-4 md:mx-0 md:w-9/12";
+  }
   return (
-    <div className="flex mt-4 max-w-4xl mx-auto gap-6">
-    { !hideNavigation && (
-      <div className="w-3/12">
-        <Navigation />
-      </div>
-    )}
-      <div className={hideNavigation ? 'w-full' : 'w-9/12'}>
-        {children}
-      </div>
+    <div className="md:flex mt-4 max-w-4xl mx-auto gap-6 mb-24 md:mb-0">
+      {!hideNavigation && (
+        <div className="fixed w-full bottom-0 md:static md:w-3/12 -mb-5">
+          <Navigation />
+        </div>
+      )}
+      <div className={rightColumnClasses}>{children}</div>
     </div>
   );
 }
