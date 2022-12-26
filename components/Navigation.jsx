@@ -50,7 +50,7 @@ function Navigation() {
           </svg>
           Friends
         </Link>
-        <Link href="" className={inActiveElement}>
+        <Link href="/Saved" className={pathname === '/Saved' ? activeElement : inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -67,7 +67,7 @@ function Navigation() {
           </svg>
           Saved Posts
         </Link>
-        <Link href="" className={inActiveElement}>
+        <Link href="/Notifications" className={pathname === '/Notifications' ? activeElement : inActiveElement}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

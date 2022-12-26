@@ -1,4 +1,4 @@
-function card({children, noPadding}) {
+function Card({children, noPadding}) {
   let classes = "bg-white shadow-md shadow-gray-300 rounded-md mb-5";
 
   !noPadding ? classes += ' p-4' : classes
@@ -10,4 +10,4 @@ function card({children, noPadding}) {
   )
 }
 
-export default card
+export default Card
