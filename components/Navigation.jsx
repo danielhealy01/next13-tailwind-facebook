@@ -1,14 +1,21 @@
 import Card from "./Card";
 import Router, { useRouter } from "next/router";
 import Link from "next/link";
+import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 function Navigation() {
   const router = useRouter();
-  const {asPath: pathname } = router;
+  const { asPath: pathname } = router;
   const activeElement =
     "flex text-sm md:text-md md:gap-3 py-3 bg-socialBlue text-white md:-mx-8 md:px-8 px-6 rounded-md shadow-md shadow-gray-300";
   const inActiveElement =
     "flex text-sm md:text-md md:gap-3 py-3 py-1 my-2 px-6 hover:bg-blue-500 hover:bg-opacity-20 md:hover:-mx-4 hover:px-4 hover:rounded-md hover:shadow-md hover:shadow-gray-300 hover:scale-105 transition-all";
+  
+  const supabase = useSupabaseClient()
+  
+  async function logout() {
+    await supabase.auth.signOut()
+  }
   return (
     <Card noPadding={true}>
       <div className="px-4 py-2 justify-between flex md:block shadow-md shadow-gray-500 md:shadow-none">
@@ -97,23 +104,25 @@ function Navigation() {
           </svg>
           <span className="hidden md:block">Notifications</span>
         </Link>
-        <Link href="" className={inActiveElement}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
-            />
-          </svg>
+        <button onClick={logout} className="w-full -my-2">
+          <span className={inActiveElement}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"
+              />
+            </svg>
           <span className="hidden md:block">Logout</span>
-        </Link>
+          </span>
+        </button>
       </div>
     </Card>
   );
