@@ -7,14 +7,14 @@ import LoginPage from "./login";
 export default function Home() {
   const session = useSession();
 
-
-
   if (!session) {
     return <LoginPage />;
   }
+  console.log(session)
   return (
-      <Layout>
-        <PostFormCard />
-        <PostCard />
-      </Layout>
-)}
+    <Layout>
+      <PostFormCard />
+      <PostCard />
+    </Layout>
+  );
+}
