@@ -3,8 +3,9 @@ import Card from "./Card";
 import { useState } from "react";
 import ClickOutHandler from "react-clickout-handler";
 import Link from "next/link";
+import ReactTimeAgo from "react-time-ago";
 
-function PostCard({ content, profiles:profile }) {
+function PostCard({ content, created_at, profiles:profile }) {
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false);
   const handleClickout = () => {
     setDropdownMenuOpen(false);
@@ -27,9 +28,11 @@ function PostCard({ content, profiles:profile }) {
                 {profile.name}
               </span>{" "}
             </Link>
-            shared an <a className="text-socialBlue">album</a>
+            shared an <a className="text-socialBlue">post</a>
           </p>
-          <p className="text-gray-500 text-sm">2 hours ago</p>
+          <p className="text-gray-500 text-sm">
+            <ReactTimeAgo date={created_at} locale={'en-US'} />
+          </p>
         </div>
         {!dropdownMenuOpen && (
           <button
