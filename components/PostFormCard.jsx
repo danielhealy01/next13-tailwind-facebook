@@ -3,7 +3,7 @@ import Avatar from "./Avatar";
 import { useEffect, useState } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 
-function PostFormCard() {
+function PostFormCard({onPost}) {
   const [profile, setProfile] = useState(null);
   const [content, setContent] = useState(null)
   const supabase = useSupabaseClient();
@@ -16,6 +16,10 @@ function PostFormCard() {
       .then(res => {
         if (!res.error) {
           alert('Posted!')
+          setContent('')
+          if (onPost) {
+            onPost()
+          }
       }
     })
   }

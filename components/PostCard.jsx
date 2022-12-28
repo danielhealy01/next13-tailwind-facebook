@@ -4,7 +4,7 @@ import { useState } from "react";
 import ClickOutHandler from "react-clickout-handler";
 import Link from "next/link";
 
-function PostCard() {
+function PostCard({ content, profiles:profile }) {
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false);
   const handleClickout = () => {
     setDropdownMenuOpen(false);
@@ -16,15 +16,15 @@ function PostCard() {
         <div>
           <Link href={"/Profile"}>
             <span className="cursor-pointer">
-              <Avatar />
+              <Avatar url={profile.avatar} />
             </span>
           </Link>
         </div>
         <div className="grow">
           <p>
-            <Link href={'/Profile'}>
+            <Link href={"/Profile"}>
               <span className="mr-1 font-semibold hover:underline cursor-pointer">
-                John Doe
+                {profile.name}
               </span>{" "}
             </Link>
             shared an <a className="text-socialBlue">album</a>
@@ -167,12 +167,7 @@ function PostCard() {
         </ClickOutHandler>
       </div>
       <div>
-        <p className="my-3 text-sm">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quas
-          fugit cumque! Aut eos eius magnam? Maxime quisquam deserunt
-          consectetur voluptate. Perspiciatis, tempora! Iusto adipisci molestias
-          eius atque perspiciatis enim.
-        </p>
+        <p className="my-3 text-sm">{content}</p>
         <div className="rounded-md overflow-hidden">
           <img src="../raphael-nogueira-espuILpsRUw-unsplash.jpg" alt="beach" />
         </div>
