@@ -1,40 +1,32 @@
 import Card from "./Card";
 import Avatar from "./Avatar";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
+import { UserContext } from "../contexts/userContext";
 
-function PostFormCard({onPost}) {
-  const [profile, setProfile] = useState(null);
-  const [content, setContent] = useState(null)
+function PostFormCard({ onPost }) {
+  const [content, setContent] = useState(null);
   const supabase = useSupabaseClient();
   const session = useSession();
+  const { profile } = useContext(UserContext);
+
   function createPost() {
-    supabase.from('posts').insert({
-      author: session.user.id,
-      content,
-    })
-      .then(res => {
-        if (!res.error) {
-          alert('Posted!')
-          setContent('')
-          if (onPost) {
-            onPost()
-          }
-      }
-    })
-  }
-  useEffect(() => {
     supabase
-      .from("profiles")
-      .select()
-      .eq("id", session.user.id)
-      .then((result) => {
-        if (result.data.length) {
-          setProfile(result.data[0]);
-          console.log(result.data[0]);
+      .from("posts")
+      .insert({
+        author: session.user.id,
+        content,
+      })
+      .then((res) => {
+        if (!res.error) {
+          alert("Posted!");
+          setContent("");
+          if (onPost) {
+            onPost();
+          }
         }
       });
-  }, []);
+  }
 
   return (
     <Card>

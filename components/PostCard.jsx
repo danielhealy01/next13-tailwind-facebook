@@ -1,15 +1,17 @@
 import Avatar from "./Avatar";
 import Card from "./Card";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ClickOutHandler from "react-clickout-handler";
 import Link from "next/link";
 import ReactTimeAgo from "react-time-ago";
+import { UserContext } from "../contexts/userContext";
 
-function PostCard({ content, created_at, profiles:profile }) {
+function PostCard({ content, created_at, profiles:authorProfile }) {
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false);
   const handleClickout = () => {
     setDropdownMenuOpen(false);
   };
+  const {profile:myProfile} = useContext(UserContext)
 
   return (
     <Card>
@@ -17,7 +19,7 @@ function PostCard({ content, created_at, profiles:profile }) {
         <div>
           <Link href={"/Profile"}>
             <span className="cursor-pointer">
-              <Avatar url={profile.avatar} />
+              <Avatar url={authorProfile.avatar} />
             </span>
           </Link>
         </div>
@@ -25,7 +27,7 @@ function PostCard({ content, created_at, profiles:profile }) {
           <p>
             <Link href={"/Profile"}>
               <span className="mr-1 font-semibold hover:underline cursor-pointer">
-                {profile.name}
+                {authorProfile.name}
               </span>{" "}
             </Link>
             shared an <a className="text-socialBlue">post</a>
@@ -230,7 +232,7 @@ function PostCard({ content, created_at, profiles:profile }) {
       </div>
       <div className="flex mt-4 gap-3">
         <div>
-          <Avatar />
+          <Avatar url={myProfile?.avatar} />
         </div>
         <div className="border grow rounded-full relative">
           <textarea
